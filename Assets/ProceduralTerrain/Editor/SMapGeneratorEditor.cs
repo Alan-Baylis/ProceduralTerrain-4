@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SMapGenerator))]
+[CustomEditor (typeof (SMapGenerator))]
 public class SMapGeneratorEditor : Editor
 {
-    public override void OnInspectorGUI()
+	public override void OnInspectorGUI()
     {
-        SMapGenerator _mapGenerator = (SMapGenerator)target;
+		SMapGenerator _mapGen = (SMapGenerator)target;
 
-        if(DrawDefaultInspector())
+		if (DrawDefaultInspector ())
         {
-            if(_mapGenerator.AutoUpdate)
+			if (_mapGen.AutoUpdate)
             {
-                _mapGenerator.GenerateMap();
-            }
-        }
+				_mapGen.DrawMapInEditor ();
+			}
+		}
 
-        if(GUILayout.Button("Generate"))
+		if (GUILayout.Button ("Generate"))
         {
-            _mapGenerator.GenerateMap();
-        }
-    }
+			_mapGen.DrawMapInEditor ();
+		}
+	}
 }
